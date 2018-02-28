@@ -18,7 +18,17 @@ const requestComplete = function(){
     const jsonString = this.responseText;
     const countries = JSON.parse(jsonString);
     console.log(countries);
-    
+    populateDropDown(countries);
+}
+
+const populateDropDown = function(countries){
+    countriesDropDown = document.getElementById('countries');
+    countries.forEach(function(country, index){
+        const option = document.createElement('option');
+        option.innerText = country.name;
+        option.value = index;
+        countriesDropDown.appendChild(option);
+    });
 }
 
 
